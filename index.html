@@ -28,30 +28,42 @@ input{min-width:0}select{width:165px}
 @media(max-width:1050px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
 @media(max-width:680px){header{padding:28px 16px 18px}.wrap{padding-left:14px;padding-right:14px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.toolbar{gap:8px}input{width:100%;flex-basis:100%}select{flex:1;width:calc(50% - 4px)}.cover{height:auto;aspect-ratio:0.69}.details{padding:10px}.book h2{font-size:13px}}
 
-/* 표지 정렬 개선: 카드별 동일한 캔버스, 원본 비율 보존 */
-.grid{align-items:stretch}
-.cover{aspect-ratio:0.70!important;height:auto!important;padding:12px 10px;background:#f8f7f3!important}
-.cover img{width:100%!important;height:100%!important;max-width:100%;max-height:100%;object-fit:contain!important;object-position:center!important;background:transparent!important;filter:none!important;image-rendering:auto}
-.book{overflow:hidden}
-.cover .placeholder{max-width:100%;max-height:100%}
-@media(max-width:680px){.cover{padding:8px 7px}}
 
-/* 2026-11-03: 실제 표지 높이를 우선 통일하고 원본 비율은 유지 */
-.grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:22px}
-.cover{box-sizing:border-box;aspect-ratio:auto!important;height:258px!important;padding:8px 5px!important;display:flex;align-items:center;justify-content:center;background:#fffdfa!important}
-.cover img{display:block!important;width:auto!important;height:242px!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;background:transparent!important;flex-shrink:1}
-.cover .placeholder{width:100%;height:100%;max-height:242px}
-@media(max-width:1050px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media(max-width:680px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cover{height:224px!important;padding:7px 4px!important}.cover img{height:210px!important}}
+/* 1차 홈페이지처럼 표지 전체 표시 */
+.grid {
+  align-items: stretch;
+}
 
-/* 판형을 존중하는 비교 시안: 카드 크기는 같고 가로형 표지는 가로 폭 우선 */
-.grid{align-items:stretch}
-.cover{height:258px!important;aspect-ratio:auto!important;padding:8px!important;background:#fffdfa!important}
-.cover img{display:block!important;width:auto!important;height:242px!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important}
-.cover img.landscape{width:100%!important;height:auto!important;max-height:242px!important}
-.cover img.square{width:100%!important;height:auto!important;max-height:242px!important}
-.cover img.portrait{width:auto!important;height:242px!important;max-width:100%!important}
-@media(max-width:680px){.cover{height:224px!important;padding:7px!important}.cover img.portrait{height:210px!important}.cover img.landscape,.cover img.square{max-height:210px!important}}
+.cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.69;
+  padding: 0;
+  background: #fffdfa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.book {
+  overflow: hidden;
+}
+
+.cover .placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+
 
 /* 책 표지와 제목에 마우스를 올리면 손가락 모양으로 변경 */
 .book .cover,
