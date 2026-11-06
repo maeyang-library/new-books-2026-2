@@ -90,7 +90,40 @@ function openDLS(title) {
   const url = new URL('https://read365.edunet.net/PureScreen/SchoolSearchResult');
   
 
-url.searchParams.set('searchKeyword', title.includes('알파 세계사 제6권') ? '알파 세계사 제6권' : title);
+
+const englishBookKeywords = {
+  'Artemis': 'Artemis',
+  'Because of Winn-Dixie': 'Because of Winn-Dixie',
+  'Cosmos': 'Cosmos',
+  'El Deafo: A Graphic Novel': 'El Deafo',
+  'El Deafo: Superpowered Edition!': 'El Deafo',
+  'Project Hail Mary': 'Project Hail Mary',
+  'The Daily Stoic': 'The Daily Stoic',
+  'The Giver (Graphic Novel)': 'The Giver',
+  'The Giver Graphic Novel': 'The Giver',
+  'The Last Kids on Earth #1': 'Last Kids on Earth',
+  'The Martian': 'The Martian',
+  'The Odyssey: A Graphic Novel': 'The Odyssey',
+  'The Wild Robot': 'The Wild Robot',
+  'When The Heavens Went On Sale': 'When The Heavens Went On Sale',
+  'When You Trap a Tiger': 'When You Trap a Tiger'
+};
+
+let searchKeyword = title;
+
+if (title.includes('알파 세계사 제6권')) {
+  searchKeyword = '알파 세계사 제6권';
+} else {
+  for (const [bookTitle, keyword] of Object.entries(englishBookKeywords)) {
+    if (title === bookTitle || title.startsWith(bookTitle + ':')) {
+      searchKeyword = keyword;
+      break;
+    }
+  }
+}
+
+url.searchParams.set('searchKeyword', searchKeyword);
+
 
   url.searchParams.set('provCode', 'J10');
   url.searchParams.set('neisCode', 'J100007253');
