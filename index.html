@@ -87,7 +87,8 @@ for(const id of ['search','category','sort'])$(id).addEventListener(id==='search
 function openDLS(title) {
   const url = new URL('https://read365.edunet.net/PureScreen/SchoolSearchResult');
   
-url.searchParams.set('searchKeyword', title.includes('알파 세계사 6') ? '알파 세계사 제6권' : title);
+
+url.searchParams.set('searchKeyword', title.includes('알파 세계사 제6권') ? '알파 세계사 제6권' : title);
 
   url.searchParams.set('provCode', 'J10');
   url.searchParams.set('neisCode', 'J100007253');
