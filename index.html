@@ -74,13 +74,15 @@ input{min-width:0}select{width:165px}
   box-shadow: 0 12px 26px rgba(45,42,38,0.12);
 }
 
-/* 검색창과 분야 선택 메뉴 상단 고정 */
+/* 검색창 상단 고정 및 하단 경계선 */
 .toolbar {
   position: sticky;
   top: 0;
   z-index: 100;
   background: #f8f7f3;
-  padding: 12px;
+  padding: 14px 12px;
+  border-bottom: 2px solid #a8bda5;
+  box-shadow: 0 4px 10px rgba(45, 65, 45, 0.08);
 }
   
 </style></head><body><header><div class="wrap"><h1>2026학년도 2차 신간도서</h1><p>혜윰마루 도서관에 새로 들어온 책들을 살펴보세요.</p></div></header><main class="wrap"><div class="toolbar"><input id="search" type="search" placeholder="도서명 · 저자 · 출판사 검색" aria-label="도서 검색"><select id="category" aria-label="분야 선택"><option value="">전체 분야</option></select></div><div class="meta"><span id="count"></span></div><div id="grid" class="grid"></div><div id="pages" class="pagebar"></div><footer class="notice">매양중학교 혜윰마루도서관 · 2026학년도 2차 신간도서<br>표지 이미지는 외부 제공처에서 불러옵니다. 각 제공처의 이용조건 및 표지 권리 확인 후 공개 게시하세요. 『화산귀환 1』은 실제 1권 표지가 아닌 11권 표지를 임시로 표시합니다. 도서 정보는 학교 구입 목록을 기준으로 작성했습니다.</footer></main><script>
