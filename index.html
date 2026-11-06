@@ -115,7 +115,9 @@ if (title.includes('알파 세계사 제6권')) {
   searchKeyword = '알파 세계사 제6권';
 } else {
   for (const [bookTitle, keyword] of Object.entries(englishBookKeywords)) {
-    if (title === bookTitle || title.startsWith(bookTitle + ':')) {
+    
+if (title === bookTitle || title.startsWith(bookTitle + ':') || title.startsWith(bookTitle + ' :')) {
+
       searchKeyword = keyword;
       break;
     }
